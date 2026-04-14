@@ -279,7 +279,9 @@ export default function NotaEnfermeria() {
   const compartirEmail = (nota: string) => {
     const asunto = encodeURIComponent('Nota de Enfermería — Hogar Belén');
     const cuerpo = encodeURIComponent(nota);
-    window.location.href = `mailto:?subject=${asunto}&body=${cuerpo}`;
+    const enlace = document.createElement('a');
+    enlace.href = `mailto:?subject=${asunto}&body=${cuerpo}`;
+    enlace.click();
   };
 
   const notaActual = notaGenerada;
