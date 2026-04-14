@@ -49,6 +49,7 @@ const ResultadosDeBúsqueda = lazy(() => import('./páginas/ResultadosDeBúsqued
 const PoliticaPrivacidad = lazy(() => import('./páginas/PoliticaPrivacidad'))
 const TerminosYCondiciones = lazy(() => import('./páginas/TerminosYCondiciones'))
 const AICareAssistant = lazy(() => import('./páginas/AICareAssistant'))
+const NotaEnfermeria = lazy(() => import('./páginas/NotaEnfermeria'))
 
 // Loading component
 const LoadingSpinner = () => (
@@ -110,6 +111,9 @@ export default function App() {
 
           {/* AI Assistant */}
           <Route path="/ai-assistant" element={<AICareAssistant />} />
+
+          {/* Nursing Notes */}
+          <Route path="/enfermeria/notas" element={<NotaEnfermeria />} />
 
           {/* 404 */}
           <Route path="*" element={<Navigate to="/" replace />} />
