@@ -70,7 +70,12 @@ const emptyResidente = (): ResidenteData => ({
   valoraciones: '',
 });
 
-// ─── AI Service ──────────────────────────────────────────────────────────────
+// ─── Constants ───────────────────────────────────────────────────────────────
+
+const WHATSAPP_MESSAGE_MAX_LENGTH = 500;
+const OPENAI_MODEL = import.meta.env.VITE_OPENAI_MODEL ?? 'gpt-4';
+
+
 
 async function generarNotaIA(residentes: ResidenteData[], turno: string, isConsolidated: boolean): Promise<string> {
   const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
@@ -114,7 +119,7 @@ INSTRUCCIONES:
       Authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
-      model: 'gpt-4',
+      model: OPENAI_MODEL,
       temperature: 0.3,
       messages: [
         { role: 'system', content: systemPrompt },
@@ -424,7 +429,7 @@ export default function NotasEnfermeria() {
   };
 
   const shareWhatsApp = () => {
-    const text = encodeURIComponent(`${noteTitle}\n\n${nota.slice(0, 500)}...`);
+    const text = encodeURIComponent(`${noteTitle}\n\n${nota.slice(0, WHATSAPP_MESSAGE_MAX_LENGTH)}...`);
     window.open(`https://wa.me/?text=${text}`, '_blank');
   };
 
