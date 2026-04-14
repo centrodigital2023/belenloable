@@ -337,6 +337,38 @@ export type Database = {
           updated_at?: string
         }
       }
+      nursing_notes: {
+        Row: {
+          id: string
+          resident_id: string | null
+          date: string
+          shift: 'mañana' | 'tarde' | 'noche'
+          note: string
+          is_consolidated: boolean
+          created_by: string | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          resident_id?: string | null
+          date: string
+          shift: 'mañana' | 'tarde' | 'noche'
+          note: string
+          is_consolidated?: boolean
+          created_by?: string | null
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          resident_id?: string | null
+          date?: string
+          shift?: 'mañana' | 'tarde' | 'noche'
+          note?: string
+          is_consolidated?: boolean
+          created_by?: string | null
+          created_at?: string
+        }
+      }
       reviews: {
         Row: {
           id: string

@@ -42,6 +42,9 @@ const PlanSolYCafe = lazy(() => import('./páginas/PlanSolYCafe'))
 const PlanSonreir = lazy(() => import('./páginas/PlanSonreir'))
 const PlanTurismoRural = lazy(() => import('./páginas/PlanTurismoRural'))
 
+// Nursing notes
+const NotasEnfermeria = lazy(() => import('./páginas/NotasEnfermeria'))
+
 // Other pages
 const PáginaDeServicios = lazy(() => import('./páginas/PáginaDeServicios'))
 const PáginaDePrecios = lazy(() => import('./páginas/PáginaDePrecios'))
@@ -110,6 +113,9 @@ export default function App() {
 
           {/* AI Assistant */}
           <Route path="/ai-assistant" element={<AICareAssistant />} />
+
+          {/* Nursing notes */}
+          <Route path="/notas-enfermeria" element={<NotasEnfermeria />} />
 
           {/* 404 */}
           <Route path="*" element={<Navigate to="/" replace />} />
